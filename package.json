@@ -9,7 +9,7 @@
     "prepublishOnly": "npm run build",
     "docs": "typedoc src/index.ts",
     "test": "tsc --noEmit && npm run test:mocha",
-    "test:mocha": "mocha"
+    "test:mocha": "rm -rf coverage && nyc --reporter=cobertura mocha"
   },
   "keywords": [
     "duration",
@@ -23,7 +23,10 @@
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.11.12",
     "chai": "^4.3.7",
+    "jscoverage": "^0.6.0",
     "mocha": "^10.1.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^15.1.0",
     "ts-node": "^10.9.1",
     "typedoc": "^0.23.21",
     "typescript": "^4.9.3"
