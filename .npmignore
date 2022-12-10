@@ -1,0 +1,6 @@
+src
+docs
+.github
+tsconfig.json
+tests
+.mocharc.json
