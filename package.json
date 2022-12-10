@@ -1,11 +1,11 @@
 {
-  "name": "duration-formatter",
+  "name": "ms-human-format",
   "version": "1.0.0",
   "description": "Formats duration to and from human readable format",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc",
     "prepublishOnly": "npm run build",
     "docs": "typedoc src/index.ts",
     "test": "tsc --noEmit && npm run test:mocha",
