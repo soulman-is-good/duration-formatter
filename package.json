@@ -9,13 +9,16 @@
     "prepublishOnly": "npm run build",
     "docs": "typedoc src/index.ts",
     "test": "tsc --noEmit && npm run test:mocha",
-    "test:mocha": "rm -rf coverage && nyc --reporter=cobertura mocha"
+    "test:mocha": "rm -rf coverage && nyc --reporter=cobertura --reporter=html mocha"
   },
   "keywords": [
     "duration",
     "format",
     "milliseconds"
   ],
+  "repository": {
+    "url": "https://github.com/soulman-is-good/duration-formatter/"
+  },
   "author": "Maxim Savin <soulman.is.good@gmail.com>",
   "license": "ISC",
   "devDependencies": {
