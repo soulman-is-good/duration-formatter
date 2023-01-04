@@ -5,14 +5,19 @@ describe("Duration formatter tests", () => {
     describe("#parseDuration tests", () => {
         it("Should parse correctly", () => {
             expect(parseDuration("2hours 30 minutes, 20 sec 453ms")).to.eq(9020453);
-            // TODO more
+            expect(parseDuration("1h30m20s400ms")).to.eq(5420400);
+            expect(parseDuration("1")).to.eq(1);
+            expect(parseDuration("0")).to.eq(0);
         });
     });
 
     describe("Formatter tests", () => {
         it("Should format correctly", () => {
             expect(formatMs(1296575243)).to.eq("2 weeks 1 day 9 minutes 35 seconds 243 milliseconds")
-            // TODO more
+            expect(formatMs(1)).to.eq("1 millisecond")
+            expect(formatMs(0)).to.eq("0 millisecond")
+            // TODO: Add negative numbers handle
+            // expect(formatMs(-1)).to.eq("-1 millisecond")
         });
     });
 

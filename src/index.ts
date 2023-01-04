@@ -1,6 +1,9 @@
 import { DAY_IN_MS, HOUR_IN_MS, isNumericString, MINUTE_IN_MS, normalizeUnit, Unit, unitToWord, WEEK_IN_MS } from "./utils";
 
 export function parseDuration(durationInHumanFormat: string): number {
+  if (/^\d+$/.test(durationInHumanFormat)) {
+    return parseInt(durationInHumanFormat, 10);
+  }
   const formatRegexp =
     /(-?\d+(\.\d+)?)\s*(m(illi)?s(ec(onds?)?)?|s(ec(onds?)?)?|m(in(utes?)?)?|h(ours?)?|d(ays?)?|w(eeks?)?)/gi;
   let result = 0;
@@ -25,6 +28,7 @@ export function parseDuration(durationInHumanFormat: string): number {
 export function formatMs(timeInMilliseconds: number): string {
   let result: string = '';
   let time = timeInMilliseconds;
+
   if (time >= WEEK_IN_MS) {
     const weeks = Math.floor(time / WEEK_IN_MS);
     result += ` ${weeks} ${unitToWord("w", weeks > 1)}`;
@@ -52,6 +56,8 @@ export function formatMs(timeInMilliseconds: number): string {
   }
   if (time > 0) {
     result += ` ${time} ${unitToWord("ms", time > 1)}`;
+  } else if (result.length === 0) {
+    result = `0 ${unitToWord("ms", time > 1)}`;
   }
 
   return result.trim();
