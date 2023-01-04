@@ -1,6 +1,6 @@
 {
   "name": "ms-human-format",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Formats duration to and from human readable format",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
